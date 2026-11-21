@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI活用講座 日程調整</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif; background: #f4f7fb; color: #1f2937; line-height: 1.6; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 20px 16px 40px; }
+  header { background: #1e40af; color: #fff; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  header h1 { font-size: 20px; margin-bottom: 8px; }
+  header p { font-size: 14px; opacity: .95; }
+  .fixed { background: #fff7ed; border: 2px solid #f59e0b; border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; font-size: 15px; }
+  .fixed strong { color: #b45309; }
+  .card { background: #fff; border-radius: 12px; padding: 18px 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .title { display: block; font-weight: 700; margin-bottom: 10px; font-size: 15px; }
+  input[type="text"] { width: 100%; font-size: 16px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; }
+  textarea { width: 100%; font-size: 16px; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; min-height: 64px; }
+  .dates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .chip { display: block; cursor: pointer; position: relative; }
+  .chip input { position: absolute; opacity: 0; }
+  .chip span { display: block; text-align: center; padding: 14px 6px; border: 2px solid #cbd5e1; border-radius: 10px; font-size: 16px; font-weight: 600; background: #fff; }
+  .chip input:checked + span { background: #1e40af; border-color: #1e40af; color: #fff; }
+  .chip input:focus-visible + span { outline: 3px solid #93c5fd; }
+  .note { font-size: 13px; color: #64748b; margin-top: 10px; }
+  button { width: 100%; background: #ea580c; color: #fff; border: none; font-size: 17px; font-weight: 700; padding: 16px; border-radius: 10px; cursor: pointer; }
+  button:active { opacity: .85; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>AI活用講座 日程調整</h1>
+    <p>講座は全3回、時間は20:00〜21:30です。<br>あと2回の日程を調整しています。</p>
+  </header>
+  <div class="fixed">確定：<strong>12月17日（木）20:00〜21:30</strong></div>
+  <form name="nittei-chosei" method="POST" data-netlify="true" action="/thanks.html">
+    <input type="hidden" name="form-name" value="nittei-chosei">
+    <div class="card">
+      <label class="title" for="name">お名前</label>
+      <input type="text" id="name" name="name" required placeholder="例：上杉">
+    </div>
+    <div class="card">
+      <span class="title">参加できる日（全部選んでください）</span>
+      <div class="dates">
+        <label class="chip"><input type="checkbox" name="dates" value="11月30日（月）"><span>11月30日（月）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月1日（火）"><span>12月1日（火）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月7日（月）"><span>12月7日（月）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月8日（火）"><span>12月8日（火）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月9日（水）"><span>12月9日（水）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月10日（木）"><span>12月10日（木）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月14日（月）"><span>12月14日（月）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月22日（火）"><span>12月22日（火）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月23日（水）"><span>12月23日（水）</span></label>
+        <label class="chip"><input type="checkbox" name="dates" value="12月24日（木）"><span>12月24日（木）</span></label>
+      </div>
+      <p class="note">どの日も都合がつかない場合は、そのまま送信して、備考に書いてください。</p>
+    </div>
+    <div class="card">
+      <label class="title" for="comment">備考（任意）</label>
+      <textarea id="comment" name="comment"></textarea>
+    </div>
+    <button type="submit">送信する</button>
+  </form>
+</div>
+</body>
+</html>
